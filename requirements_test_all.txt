@@ -2449,6 +2449,9 @@ vulcan-api==2.3.2
 # homeassistant.components.vultr
 vultr==0.1.2
 
+# homeassistant.components.wakatime
+wakatime_api==0.1.3
+
 # homeassistant.components.samsungtv
 # homeassistant.components.wake_on_lan
 wakeonlan==2.1.0

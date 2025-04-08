@@ -1,0 +1,13 @@
+{
+  "domain": "wakatime",
+  "name": "WakaTime",
+  "codeowners": ["@EastArctica"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://www.home-assistant.io/integrations/wakatime",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "loggers": ["wakatime"],
+  "quality_scale": "bronze",
+  "requirements": ["wakatime_api==0.1.3"]
+}

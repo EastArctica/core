@@ -687,6 +687,7 @@ FLOWS = {
         "volumio",
         "volvooncall",
         "vulcan",
+        "wakatime",
         "wake_on_lan",
         "wallbox",
         "waqi",
