@@ -43,7 +43,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: WakaTimeConfigEntry) -> 
 
     try:
         users_api = UsersApi(api_client)
-        users_api.get_current_user()
+        await hass.async_add_executor_job(users_api.get_current_user)
     except ApiException as e:
         if e.status == 401:
             LOGGER.error("Invalid API key: %s", e)
@@ -55,7 +55,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: WakaTimeConfigEntry) -> 
         LOGGER.error("Error validating API connection: %s", e)
         return False
 
-    entry.runtime_data.client = api_client
+    entry.runtime_data = api_client
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
