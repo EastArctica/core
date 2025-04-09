@@ -84,9 +84,11 @@ class WakaTimeConfigFlow(ConfigFlow, domain=DOMAIN):
                     errors["base"] = "cannot_connect"
             else:
                 await self.async_set_unique_id(user.data.id)
-                self._abort_if_unique_id_configured(updates=user_input)
-                return self.async_create_entry(
-                    title=f"{user.data.username} [{user.data.id}]", data=user_input
+                self._abort_if_unique_id_mismatch()
+                return self.async_update_reload_and_abort(
+                    self._get_reconfigure_entry(),
+                    title=f"{user.data.username} [{user.data.id}]",
+                    data=user_input,
                 )
 
         return self.async_show_form(
